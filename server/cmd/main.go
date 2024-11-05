@@ -34,6 +34,8 @@ func Start(cfg *config.Config) {
 
 	routes.ConfigureRoutes(app)
 
+	go routes.HandleMessages()
+
 	fmt.Println("PORT = ", cfg.HTTP.Port)
 
 	err := app.Run(cfg.HTTP.Port)
